@@ -6,6 +6,7 @@ jobs:
       image: ubuntu-1604:201903-01
       
     steps:
+      - checkout
       - run:
           name: install phoshiCorp packer
           command: |
@@ -14,7 +15,6 @@ jobs:
             unzip packer_${VER}_linux_amd64.zip
             sudo mv packer /usr/local/bin
             
-      - checkout
       - run:
           name: Validate the packer config and run Packer build
           command: |
