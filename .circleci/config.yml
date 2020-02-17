@@ -13,7 +13,6 @@ jobs:
             wget https://releases.hashicorp.com/packer/${VER}/packer_${VER}_linux_amd64.zip
             unzip packer_${VER}_linux_amd64.zip
             sudo mv packer /usr/local/bin
-            packer
 
       - run:
           name: Validate the packer config and run Packer build
@@ -23,6 +22,7 @@ jobs:
             -var 'aws_access_key='${aws_access_key} \
             -var 'aws_secret_key='${aws_secret_key} \
             -var 'aws_region='${aws_region} \
+            -var 'ami_users='${ami_users} \
             -var 'source_ami='${source_ami} \
             ubuntu-ami.json
 
