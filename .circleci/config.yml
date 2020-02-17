@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install phoshiCorp packer
+          name: install HashiCorp packer
           command: |
             export VER="1.5.4"
             wget https://releases.hashicorp.com/packer/${VER}/packer_${VER}_linux_amd64.zip
