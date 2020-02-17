@@ -11,3 +11,23 @@ jobs:
           unzip packer_${VER}_linux_amd64.zip
           sudo mv packer /usr/local/bin
           packer
+      -run:
+        name: Validate the packer config and run Packer build
+        command: |
+          packer validate ubuntu-ami.json
+          packer build \
+          -var 'aws_access_key='${aws_access_key} \
+          -var 'aws_secret_key='${aws_secret_key} \
+          -var 'aws_region='${aws_region} \
+          -var 'source_ami='${source_ami} \
+          ubuntu-ami.json
+
+workflows:
+  version: 2
+  ami_img:
+    jobs:
+    - ami_img:
+        filters:
+            branches:
+              only:
+                - master     
