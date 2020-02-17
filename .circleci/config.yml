@@ -4,23 +4,23 @@ jobs:
   ami_img:
     steps:
       - run:
-        name: install phoshiCorp packer
-        command: |
-          export VER="1.5.4"
-          wget https://releases.hashicorp.com/packer/${VER}/packer_${VER}_linux_amd64.zip
-          unzip packer_${VER}_linux_amd64.zip
-          sudo mv packer /usr/local/bin
-          packer
+          name: install phoshiCorp packer
+          command: |
+            export VER="1.5.4"
+            wget https://releases.hashicorp.com/packer/${VER}/packer_${VER}_linux_amd64.zip
+            unzip packer_${VER}_linux_amd64.zip
+            sudo mv packer /usr/local/bin
+            packer
       - run:
-        name: Validate the packer config and run Packer build
-        command: |
-          packer validate ubuntu-ami.json
-          packer build \
-          -var 'aws_access_key='${aws_access_key} \
-          -var 'aws_secret_key='${aws_secret_key} \
-          -var 'aws_region='${aws_region} \
-          -var 'source_ami='${source_ami} \
-          ubuntu-ami.json
+          name: Validate the packer config and run Packer build
+          command: |
+            packer validate ubuntu-ami.json
+            packer build \
+            -var 'aws_access_key='${aws_access_key} \
+            -var 'aws_secret_key='${aws_secret_key} \
+            -var 'aws_region='${aws_region} \
+            -var 'source_ami='${source_ami} \
+            ubuntu-ami.json
 
 workflows:
   version: 2
