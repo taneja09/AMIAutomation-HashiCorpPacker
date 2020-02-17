@@ -3,7 +3,7 @@ version: 2
 jobs:
   ami_img:
     steps:
-      -run:
+      - run:
         name: install phoshiCorp packer
         command: |
           export VER="1.5.4"
@@ -11,7 +11,7 @@ jobs:
           unzip packer_${VER}_linux_amd64.zip
           sudo mv packer /usr/local/bin
           packer
-      -run:
+      - run:
         name: Validate the packer config and run Packer build
         command: |
           packer validate ubuntu-ami.json
