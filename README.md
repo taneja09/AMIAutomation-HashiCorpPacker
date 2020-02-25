@@ -30,4 +30,6 @@ _Packer Template name_ : `ubuntu-ami.json`
 
 `packer build -var-file=./vars.json ubuntu-ami.json`
 
+hello world!
+
 
