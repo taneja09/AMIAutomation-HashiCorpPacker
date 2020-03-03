@@ -19,7 +19,7 @@ jobs:
           name: install Code Deploy agent
           command: |
             sudo apt-get update
-            sudo apt-get install ruby2.0
+            sudo apt-get install ruby
             cd /home/ubuntu
             wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
             chmod +x ./install
