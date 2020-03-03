@@ -44,7 +44,7 @@
                 "sudo apt-get install nodejs -y",
                 "node -v",
                 "npm -v",
-                "sudo apt-get install ruby",
+                "sudo apt-get install ruby -y",
                 "cd /home/ubuntu",
                 "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install",
                 "chmod +x ./install",
