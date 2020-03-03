@@ -14,6 +14,15 @@ jobs:
             wget https://releases.hashicorp.com/packer/${VER}/packer_${VER}_linux_amd64.zip
             unzip packer_${VER}_linux_amd64.zip
             sudo mv packer /usr/local/bin
+
+      - run:
+          name: install Code Deploy agent
+          command: |
+            sudo apt-get install ruby
+            cd /home/ubuntu
+            wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+            chmod +x ./install
+            sudo ./install auto     
             
       - run:
           name: Validate the packer config and run Packer build
@@ -31,8 +40,4 @@ workflows:
   version: 2
   build:
     jobs:
-    - build:
-        filters:
-            branches:
-              only:
-                - master     
+    - build:   
