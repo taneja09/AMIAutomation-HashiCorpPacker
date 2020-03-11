@@ -16,7 +16,7 @@ jobs:
             sudo mv packer /usr/local/bin
             
       - run:
-          name: Validate the packer config and run Packer build
+          name: Validate the packer config and run Packer build to generate ami 
           command: |
             packer validate -var 'source_ami='${source_ami} ubuntu-ami.json
             packer build \
@@ -35,4 +35,4 @@ workflows:
         filters:
             branches:
               only:
-                - master     
+                - master
