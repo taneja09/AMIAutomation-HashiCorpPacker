@@ -37,6 +37,11 @@
             "source": "cloudwatch.service",
             "destination": "/tmp/cloudwatch.service"
          },
+         {
+            "type": "file",
+            "source": "configCloudWatchAgent.sh",
+            "destination": "/tmp/configCloudWatchAgent.sh"
+         },
         {
             "type": "shell",
             "environment_vars": [
@@ -56,7 +61,9 @@
                 "sudo ./install auto",
                 "wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb",
                 "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb",
-                "sudo cp /tmp/cloudwatch.service /etc/systemd/system/cloudwatch.service"
+                "sudo cp /tmp/cloudwatch.service /etc/systemd/system/cloudwatch.service",
+                "sudo cp /tmp/configCloudWatchAgent.sh /opt/configCloudWatchAgent.sh",
+                "sudo chmod +x /opt/configCloudWatchAgent.sh"
             ]
         }
 
