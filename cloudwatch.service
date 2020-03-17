@@ -6,7 +6,7 @@ StartLimitIntervalSec=0
 [Service]
 Type=simple
 Restart=always
-RestartSec=10
+RestartSec=1
 ExecStart= /opt/configCloudWatchAgent.sh
 
 [Install]
