@@ -30,6 +30,4 @@ _Packer Template name_ : `ubuntu-ami.json`
 
 `packer build -var-file=./vars.json ubuntu-ami.json`
 
-hello world!
-
-
+Output - AMI image is created with code deploy agent and cloud watch agent already installed.
